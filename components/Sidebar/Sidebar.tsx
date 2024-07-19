@@ -76,13 +76,12 @@ const Sidebar = () => {
 
                 {/* <!-- Profile Links --> */}
 
-                <div className="flex justify-center">
+                <div className="flex justify-center glassmorphic-bg p-2 rounded bg-blue-100 bg-opacity-20 cursor-pointer ">
 
 
                     <SocialIcon icon={GithubIcon} link={Details.links.github} />
                     <SocialIcon icon={LinkedinIcon} link={Details.links.linkedin} />
                     <SocialIcon icon={TwitterIcon} link={Details.links.twitter} />
-
                     <SocialIcon icon={InstaIcon} link={Details.links.instagram} />
                 </div>
 

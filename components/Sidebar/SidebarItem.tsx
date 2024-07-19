@@ -14,7 +14,7 @@ const SidebarItem: React.FC<SidebarItemProps> = (
     }
 ) => {
     return (
-        <div className='flex m-1 glassmorphic-bg p-2 rounded hover:bg-blue-100 hover:bg-opacity-20 cursor-pointer '>
+        <div className='flex m-1 glassmorphic-bg p-2 rounded bg-blue-100 bg-opacity-20 hover:bg-blue-50 hoverbg-opacity-20 cursor-pointer '>
 
             {/* icon */}
             <div className='mr-2 p-1'>
