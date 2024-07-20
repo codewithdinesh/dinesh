@@ -9,7 +9,7 @@ const Sidebar = () => {
     const Details = {
         name: "Dinesh Rathod",
         email: "dineshrathod0198@gmail.com",
-        title: "Full Stack Developer | AI Engineer | Data Scientist",
+        title: "Full Stack Developer | Data Scientist  | AI Engineer",
         location: "Pune, India",
         education: "Bachelor of Engineering in Artificial Intelligence and Data Science",
         links: {
@@ -52,13 +52,14 @@ const Sidebar = () => {
                         className="w-32 h-32 mx-auto rounded-full mb-2"
                         src="/images/profile_img_bg.jpg"
                     />
-                    <h2 className="text-xl font-semibold text-white text-center">
-                        Dinesh Rathod
+                    <h2 className="text-2xl font-semibold text-white text-center  tracking-widest ">
+                        DINESH RATHOD
+
                     </h2>
                 </div>
 
                 {/* Profile Details */}
-                <div className="block">
+                <div className="block ">
 
                     {/* Title */}
                     <SidebarItem icon={titleIcon} title={Details.title} />

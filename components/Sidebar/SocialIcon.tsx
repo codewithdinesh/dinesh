@@ -19,7 +19,7 @@ const SocialIcon: React.FC<SocialIconProps> = (
                 href={link}
                 passHref
             >
-                <SocialIconComponent className='w-8 h-8 cursor-pointer hover:text-blue-500' />
+                <SocialIconComponent className='w-8 h-8 cursor-pointer hover:text-blue-200' />
             </Link>
 
         </div>
