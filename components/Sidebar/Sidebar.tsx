@@ -71,9 +71,7 @@ const Sidebar = () => {
 
                 </div>
 
-                <div className="h-1 bg-slate-200 rounded-full my-3">
 
-                </div>
 
                 {/* <!-- Profile Links --> */}
 
