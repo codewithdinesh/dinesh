@@ -11,7 +11,7 @@ import SidebarResponsive from "@/components/Sidebar/SidebarResponsive";
 
 export default function Home() {
   return (
-    <section className="">
+    <section className="scrollbar">
       {/* Sidebar */}
       <Sidebar />
 

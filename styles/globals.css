@@ -8,3 +8,29 @@
     /* font-family: "Rubik Vinyl", sans-serif; */
 
 }
+
+
+.scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: slategray black;
+}
+
+.scrollbar::-webkit-scrollbar {
+    width: 8px;
+
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: slategray;
+    border-radius: 150px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: black;
+    border-radius: 150px;
+}
+
+.scrollbar::-webkit-scrollbar-thumb:hover {
+    background: darkgray;
+    border-radius: 150px;
+}
