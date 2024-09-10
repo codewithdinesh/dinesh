@@ -7,15 +7,19 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import Sidebar from "@/components/Sidebar/Sidebar";
-import SidebarResponsive from "@/components/Sidebar/SidebarResponsive";
+import HeroSection from "@/components/HeroSection";
+import AnimatedBeam from "@/components/AnimatedBeam";
+
 
 export default function Home() {
   return (
-    <section className="scrollbar">
-      {/* Sidebar */}
-      <Sidebar />
-
+    <section className="flex-1">
       {/* Main Content */}
+
+
+        <HeroSection />
+
+
     </section>
   );
 }

@@ -14,6 +14,16 @@ module.exports = {
         mono: ["var(--font-geist-mono)"],
 
       },
+      keyframes: {
+        meteor: {
+          "0%": { transform: "translateY(-20%) translateX(-50%)" },
+          "100%": { transform: "translateY(300%) translateX(-50%)" },
+        },
+      },
+
+      animation: {
+        meteor: "meteor 5s ease-in-out infinite",
+      },
     },
   },
   darkMode: "class",
