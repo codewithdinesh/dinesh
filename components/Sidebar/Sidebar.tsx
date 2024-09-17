@@ -13,14 +13,14 @@ const Sidebar: React.FC = () => {
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth >= 768) {
-                setOpen(true); 
+                setOpen(true);
             } else {
-                setOpen(false); 
+                setOpen(false);
             }
         };
 
         window.addEventListener("resize", handleResize);
-        handleResize(); 
+        handleResize();
 
         return () => {
             window.removeEventListener("resize", handleResize);
@@ -31,7 +31,7 @@ const Sidebar: React.FC = () => {
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
             if (sidebarRef.current && !sidebarRef.current.contains(event.target as Node)) {
-                setOpen(false); 
+                setOpen(false);
             }
         };
 
@@ -68,7 +68,7 @@ const Sidebar: React.FC = () => {
             <div className="fixed top-0 left-0 p-4 md:hidden z-50">
                 <button
                     id="toggleSidebar"
-                    className="text-white bg-slate-700 rounded-full p-2 px-3 transition-transform duration-300"
+                    className="text-white bg-slate-700  rounded-full p-2 px-3 transition-transform duration-300"
                     onClick={() => setOpen(!open)}
                 >
                     {open ? "✖" : "☰"}
@@ -78,7 +78,8 @@ const Sidebar: React.FC = () => {
             {/* Sidebar */}
             <aside
                 ref={sidebarRef}
-                className={`bg-gradient-to-tl rounded-md from-slate-500 to-slate-700 text-white p-4 w-68 w-72 md:w-4/4 h-full transition-transform duration-300 overflow-y-auto scrollbar
+                // bg-gradient-to-tl rounded-md from-slate-500 to-slate-700 glassmorphic-bg bg-opacity-20  text-white p-4 w-68 w-72 md:w-4/4 h-full transition-transform duration-300 overflow-y-auto scrollbar
+                className={`bg-gradient-to-tl from-slate-500 to-slate-700  md:from-slate-500/20 md:to-slate-700/20 rounded-md glassmorphic-bg md:bg-opacity-20  text-white p-4 w-68 w-72 md:w-4/4 h-full transition-transform duration-300 overflow-y-auto scrollbar
                     ${open ? "block" : "hidden md:block"} md:static fixed top-0 left-0`}
             >
                 {/* Close Button inside Sidebar for Mobile */}

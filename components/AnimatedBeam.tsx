@@ -67,7 +67,7 @@ function Background() {
   return (
     <div
       ref={containerRef}
-      className="-z-1 absolute inset-0 flex h-full w-full flex-row justify-between bg-gradient-to-t from-indigo-900 to-indigo-950"
+      className="-z-1 absolute inset-0 flex h-full w-full flex-row justify-between bg-gradient-to-tl  from-slate-500 to-black"
     >
       <div
         style={{
@@ -77,7 +77,7 @@ function Background() {
         className="absolute inset-0 top-1/2 h-full w-full rounded-full opacity-40"
       />
       {Array.from({ length: count }, (_, i) => (
-        <div key={i} className="relative h-full w-px rotate-12 bg-gray-100 bg-opacity-10">
+        <div key={i} className="relative h-full w-px rotate-12 bg-blue-500 bg-opacity-5">
           {(1 + i) % 4 === 0 && <Beam index={i + 1} />}
         </div>
       ))}

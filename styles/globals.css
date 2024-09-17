@@ -34,3 +34,29 @@
     background: darkgray;
     border-radius: 150px;
 }
+
+
+/* Cursor */
+/* globals.css */
+@keyframes cursorAnimation {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+
+body {
+    cursor: url('/pointer.svg')12 12, auto;
+    /* animation: cursorAnimation 1s infinite; */
+}
