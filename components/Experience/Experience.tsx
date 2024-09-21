@@ -43,7 +43,7 @@ const Experience = () => {
             company: "Freelance",
             startDate: "June 2022",
             endDate: "Present",
-            experienceMonth: 16,
+            experienceMonth: 26,
             description: "Developed and deployed customized websites and Android applications for diverse clients. Leveraged diverse technologies to create user-friendly and efficient solutions. Developed projects such as QR attendance system, Digital portal for farmers and buyers, Training and Placement Application for College, etc."
         }
     ];
@@ -53,7 +53,7 @@ const Experience = () => {
 
 
     return (
-        <div className="min-h-screen mt-1 rounded-md experience ">
+        <div className="min-h-screen mt-1 rounded-md experience " id='experience'>
             <ExperienceTimeline experiences={experiences} />
         </div>
     )

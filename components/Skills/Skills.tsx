@@ -81,7 +81,8 @@ const skillCategories = [
 const SkillsList = () => {
     return (
         <div className="terminal-style p-4  font-mono">
-            <h2 className="text-2xl font-bold mb-4">Skills</h2>
+
+            <h2 className="text-3xl font-bold text-center mb-10 skills" id='skills'>Skills</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {skillCategories.map((category, index) => (
                     <div key={index} className="mb-6 border-l-4 border-green-500 pl-4">
