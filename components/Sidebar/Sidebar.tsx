@@ -62,57 +62,64 @@ const Sidebar: React.FC = () => {
         },
 
     }
+
     return (
-        <div className="relative z-40 md:relativ m-2 rounded-md ">
+        <div className="relative z-40 md:relative m-2 rounded-md ">
+
             {/* Sidebar Toggle Button for Mobile */}
-            <div className="fixed top-0 left-0 p-4 md:hidden z-50">
-                <button
-                    id="toggleSidebar"
-                    className="text-white bg-slate-700  rounded-full p-2 px-3 transition-transform duration-300"
-                    onClick={() => setOpen(!open)}
-                >
-                    {open ? "✖" : "☰"}
-                </button>
-            </div>
+
+            {!open &&
+                <div className="fixed top-0 left-0 p-4 md:hidden z-50">
+                    <button
+                        id="toggleSidebar"
+                        className="text-green-500 bg-slate-900 border border-green-500 rounded-full p-2 px-3 transition-transform duration-300"
+                        onClick={() => setOpen(!open)}
+                    >
+                        {open ? "" : "☰"}
+                    </button>
+                </div>
+            }
 
             {/* Sidebar */}
             <aside
                 ref={sidebarRef}
-                // bg-gradient-to-tl rounded-md from-slate-500 to-slate-700 glassmorphic-bg bg-opacity-20  text-white p-4 w-68 w-72 md:w-4/4 h-full transition-transform duration-300 overflow-y-auto scrollbar
-                className={`bg-gradient-to-tl from-slate-500 to-slate-700  md:from-slate-500/20 md:to-slate-700/20 rounded-md glassmorphic-bg md:bg-opacity-20  text-white p-4 w-68 w-72 md:w-4/4 h-full transition-transform duration-300 overflow-y-auto scrollbar
+                className={`bg-gradient-to-tl from-slate-500 to-slate-700 md:from-slate-500/20 font-semibold md:to-slate-700/20 rounded-md glassmorphic-bg md:bg-opacity-20  p-4  md:w-full h-full transition-transform duration-300 overflow-y-auto scrollbar
                     ${open ? "block" : "hidden md:block"} md:static fixed top-0 left-0`}
             >
                 {/* Close Button inside Sidebar for Mobile */}
                 <div className="md:hidden text-right">
+
                     <button
-                        className="text-white p-2"
-                        onClick={() => setOpen(false)}
+                        id="toggleSidebar"
+                        className="text-green-500 bg-slate-900 border border-green-500 rounded-full p-2 px-3 transition-transform duration-300"
+                        onClick={() => setOpen(!open)}
                     >
+
                         ✖
                     </button>
                 </div>
 
                 {/* Profile Card */}
-                <div className="mt-4 p-4 glassmorphic-bg rounded-lg hover:bg-blue-100 hover:bg-opacity-20 cursor-pointer">
+                <div className="mt-4 p-4  rounded-lg hover:bg-slate-900/40 cursor-pointer">
                     <img
                         alt="Dinesh Rathod"
-                        className="w-32 h-32 mx-auto rounded-full mb-2"
+                        className="w-32 h-32 md:w-52 md:h-52 mx-auto rounded-full mb-2 border border-green-500"
                         src="/images/profile_img_bg.jpg"
                     />
-                    <h2 className="text-2xl font-semibold text-white text-center tracking-widest">
+                    <h2 className="text-2xl font-semibold text-green-400 text-center tracking-widest glow-effect">
                         DINESH RATHOD
                     </h2>
                 </div>
 
                 {/* Profile Details */}
-                <div className="block">
+                <div className="block mt-4">
                     <SidebarItem icon={titleIcon} title={Details.title} />
                     <SidebarItem icon={educationIcon} title={Details.education} />
                     <SidebarItem icon={locationIcon} title={Details.location} />
                 </div>
 
                 {/* Profile Links */}
-                <div className="flex justify-center mt-4">
+                <div className="flex justify-center mt-6 space-x-4">
                     <SocialIcon icon={GithubIcon} link={Details.links.github} />
                     <SocialIcon icon={LinkedinIcon} link={Details.links.linkedin} />
                     <SocialIcon icon={TwitterIcon} link={Details.links.twitter} />
@@ -120,11 +127,11 @@ const Sidebar: React.FC = () => {
                 </div>
 
                 {/* Quotes */}
-                <div className="mt-8 p-4 glassmorphic-bg rounded-lg overflow-clip">
-                    <h2 className="text-lg md:text-xl text-white text-center font-semibold">
+                <div className="mt-8 p-4 bg-slate-900/80 rounded-lg overflow-clip">
+                    <h2 className="text-lg md:text-xl text-green-400 text-center font-semibold glow-effect">
                         Quotes
                     </h2>
-                    <p className="text-sm text-white text-center" id="joke">
+                    <p className="text-sm text-green-300 text-center">
                         Loading quote...
                     </p>
                 </div>
