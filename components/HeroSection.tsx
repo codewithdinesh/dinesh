@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const HeroSection = () => {
     return (
-        <section className="relative bg-gradient-to-tl from-slate-500 to-slate-700  md:from-slate-900/100 md:to-slate-700/70  py-16 md:py-24 rounded-md glassmorphic-bg bg-opacity-70  cursor-custom    ">
+        <section className="relative  bg-gradient-to-tl from-slate-500 to-slate-700  md:from-slate-900/100 md:to-slate-700/70  py-16 md:py-24 rounded-md glassmorphic-bg bg-opacity-70  cursor-custom    ">
 
 
             {/* Background Image */}

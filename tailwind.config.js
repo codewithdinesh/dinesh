@@ -12,6 +12,11 @@ module.exports = {
       fontFamily: {
         sans: ["var(--font-sans)"],
         mono: ["var(--font-geist-mono)"],
+        comfortaa: ['var(--font-comfortaa)'],
+        poppins: ['var(--font-poppins)'],
+        roboto: ['var(--font-roboto)'],
+        cedarvilleCursive: ['var(--font-cedarville-cursive)'],
+
 
       },
       keyframes: {
@@ -20,21 +25,6 @@ module.exports = {
           "100%": { transform: "translateY(300%) translateX(-50%)" },
         },
 
-        // cursor: {
-        //   "0%": {
-        //     transform: "scale(5)",
-        //     opacity: "1"
-        //   },
-        //   "50%": {
-        //     transform: "scale(1.5)",
-        //     opacity: "0.8"
-        //   },
-        //   "100%": {
-        //     transform: "scale(1)",
-        //     opacity: "1"
-        //   }
-
-        // }
       },
 
       animation: {

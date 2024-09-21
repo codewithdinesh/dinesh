@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { Providers } from "./providers";
 
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { comfortaa, fontSans } from "@/config/fonts";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import AnimatedBeam from "@/components/AnimatedBeam";
 
@@ -32,13 +32,12 @@ export const viewport: Viewport = {
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en">
+    <html suppressHydrationWarning lang="en" className={comfortaa.variable}>
       <head />
       <body
-        className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable
-        )}
+
+        className={`${comfortaa.className}  min-h-screen bg-background antialiased",
+          c`}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <AnimatedBeam>
@@ -48,7 +47,7 @@ export const viewport: Viewport = {
               <Sidebar />
 
               {/* Main Content */}
-              <main className="flex-grow p-2">
+              <main className="flex-grow p-2 ">
                 {children}
               </main>
             </div>

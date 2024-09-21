@@ -13,8 +13,12 @@ function Beam({ index }: { index: number }) {
         "[--duration:11s]": !flag,
       })}
       style={{
-        width: "6px",
+        width: "10px",
         transform: "translateY(-20%)",
+        animationDelay: `${index * 0.05}s`,
+        animationDuration: flag ? "7s" : "11s",
+
+
         // "--delay": `${index * 0.5}s`,
       }}
     >

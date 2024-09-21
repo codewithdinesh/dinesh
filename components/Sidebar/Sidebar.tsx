@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
 
     }
     return (
-        <div className="relative z-40 md:relativ m-2 rounded-md">
+        <div className="relative z-40 md:relativ m-2 rounded-md ">
             {/* Sidebar Toggle Button for Mobile */}
             <div className="fixed top-0 left-0 p-4 md:hidden z-50">
                 <button

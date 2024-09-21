@@ -4,8 +4,9 @@
 
 
 * {
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
     /* font-family: "Rubik Vinyl", sans-serif; */
+    /* font-family: "Comfortaa", sans-serif; */
 
 }
 
@@ -58,5 +59,14 @@
 
 body {
     cursor: url('/pointer.svg')12 12, auto;
+
+    font-family: "Comfortaa", sans-serif;
+
+
+
+
+
+
+
     /* animation: cursorAnimation 1s infinite; */
 }
