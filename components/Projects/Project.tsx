@@ -22,12 +22,23 @@ const Project = ({ project }: ProjectProps) => {
     return (
         <div className="container mx-auto py-8 px-4 md:px-12 ">
 
-
             {/* Project Details */}
 
-            <h1 className="text-3xl  md:text-4xl font-bold text-white mb-4">
-                {project.title}
+            <h1 className="text-3xl md:text-4xl font-bold text-lime-400 mb-4 font-mono  p-4 rounded-md ">
+                <span className="text-gray-300">
+                    <Link href={"/"} >
+                        $ ~/dinesh/
+                    </Link>
+                </span>
 
+
+                <span className="text-green-400">
+                    <Link href={"/projects"} >
+                        projects/
+                    </Link>
+                </span>
+                <span>{project.title}</span>
+                <span className="animate-blink text-white">_</span>
             </h1>
 
 
@@ -40,7 +51,7 @@ const Project = ({ project }: ProjectProps) => {
                     <img
                         src={project.image}
                         alt={project.title}
-                        className=" h-full min-w-full object-contain rounded-md hover:cursor-zoom-in"
+                        className=" h-full min-w-full  max-h-screen object-contain rounded-md hover:cursor-zoom-in"
                         onClick={handleImageClick}
                     />
 
@@ -103,7 +114,7 @@ const Project = ({ project }: ProjectProps) => {
                     <div className="fixed inset-0 bg-opacity-75 p-10 m-10 rounded-md flex items-center justify-center z-50">
                         <div className="relative">
                             <img src={project.image}
-                                alt={project.title} className="max-w-full max-h-full rounded-lg"
+                                alt={project.title} className="max-w-full max-h-screen rounded-lg"
                             />
 
 

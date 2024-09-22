@@ -11,7 +11,7 @@ const ProjectSection: React.FC = () => {
             <h2 className="text-3xl font-semibold text-green-400 mb-6 text-center">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {limitedProjects.map((project, index) => (
-                    <ProjectItem key={index} {...project} />
+                    <ProjectItem project={project} key={index} />
                 ))}
             </div>
             <div className="mt-8 text-center">

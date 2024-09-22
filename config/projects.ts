@@ -16,8 +16,8 @@ export const projectsData = [
         technologies: ['Next.js', 'Tailwind', 'AI'],
         category: 'web',
         image: '/images/projects/legalsathi.png',
-        github_link: 'https://github.com/legalsathi',
-        link: 'https://legalsathi.com', // Replace with actual live URL if available
+        github_link: 'https://github.com/codewithdinesh/SIH_2023/',
+        link: 'https://sih-2023-gilt.vercel.app/',
     },
     {
         id: 'drustii',
@@ -26,18 +26,18 @@ export const projectsData = [
         technologies: ['Android', 'AWS', 'Node.js'],
         category: 'android',
         image: '/images/projects/drustii.jpg',
-        github_link: 'https://github.com/video-social-media-app',
-        link: 'https://video-social-media-app.com', // Replace with actual live URL if available
+        github_link: 'https://github.com/codewithdinesh/drusti-app',
+        link: '',
     },
     {
         id: 'elogbook',
-        title: 'Elogbook - Production Daily Logging',
-        description: 'A web application for production logging with data visualizations, enhancing decision-making efficiency by 25%.',
+        title: 'Elogbook ',
+        description: 'A web application for production logging with data visualizations, analytics which enhance decision-making efficiency and performance.',
         technologies: ['Next.js', 'Chart.js', 'Google Firebase'],
         category: 'web',
         image: '/images/projects/elogbook.png',
-        github_link: 'https://github.com/elogbook',
-        link: 'https://elogbook.com', // Replace with actual live URL if available
+        github_link: 'https://github.com/codewithdinesh/elogbook',
+        link: 'https://elogbook-kappa.vercel.app/',
     },
     {
         id: 'spaceventures',
@@ -46,8 +46,8 @@ export const projectsData = [
         technologies: ['Next.js', 'Three.js', 'Tailwind'],
         category: 'web',
         image: '/images/projects/space_venture.gif',
-        github_link: 'https://github.com/spaceventures',
-        link: 'https://spaceventures.com', // Replace with actual live URL if available
+        github_link: 'https://github.com/codewithdinesh/space-ventures',
+        link: 'https://dyson-sphere.vercel.app/',
     },
     {
         id: 'agro-culture',
@@ -55,9 +55,9 @@ export const projectsData = [
         description: 'A digital platform connecting farmers and buyers directly to facilitate the sale of agricultural products.',
         technologies: ['PHP', 'MySQL'],
         category: 'web',
-        image: '/images/projects/agro-culture.png',
-        github_link: 'https://github.com/agro-culture',
-        link: 'https://agro-culture.com', // Replace with actual live URL if available
+        image: '/images/projects/agro_culture.png',
+        github_link: 'https://github.com/codewithdinesh/agro-culture',
+        link: '',
     },
     {
         id: 'youtube-brief',
@@ -65,9 +65,9 @@ export const projectsData = [
         description: 'A tool for summarizing YouTube videos into text with support for multiple languages.',
         technologies: ['Python', 'API'],
         category: 'data science',
-        image: '/images/projects/youtube-brief.png',
-        github_link: 'https://github.com/youtube-brief',
-        link: 'https://youtube-brief.com', // Replace with actual live URL if available
+        image: '/images/projects/youtube-brief.jpg',
+        github_link: 'https://github.com/codewithdinesh/YTSummarize',
+        link: '',
     },
     {
         id: 'chatting-app',
@@ -75,9 +75,9 @@ export const projectsData = [
         description: 'A real-time chat application with Firebase for seamless and instant communication.',
         technologies: ['Next.js', 'Firebase'],
         category: 'web',
-        image: '/images/projects/chatting-app.png',
-        github_link: 'https://github.com/chatting-app',
-        link: 'https://chatting-app.com', // Replace with actual live URL if available
+        image: '/images/projects/chat_app.png',
+        github_link: 'https://github.com/codewithdinesh/whatsapp-2',
+        link: 'https://my-whats-app.vercel.app/',
     },
     {
         id: 'brief-web',
@@ -85,9 +85,9 @@ export const projectsData = [
         description: 'An AI-powered tool to summarize websites and articles, enhancing comprehension for users.',
         technologies: ['Next.js', 'GPT'],
         category: 'machine learning',
-        image: '/images/projects/brief-web.png',
-        github_link: 'https://github.com/brief-web',
-        link: 'https://brief-web.com', // Replace with actual live URL if available
+        image: '/images/projects/brief_web.png',
+        github_link: 'https://github.com/codewithdinesh/brief-web',
+        link: 'https://brief-web.vercel.app/',
     },
     {
         id: 'doit',
@@ -95,9 +95,9 @@ export const projectsData = [
         description: 'A task management application that enables users to create, manage, and track tasks efficiently.',
         technologies: ['Android', 'Google Firebase', 'Material Design'],
         category: 'android',
-        image: '/images/projects/doit.png',
-        github_link: 'https://github.com/doit',
-        link: 'https://doit.com', // Replace with actual live URL if available
+        image: '/images/projects/do_it.jpg',
+        github_link: 'https://github.com/codewithdinesh/do-its',
+        link: '',
     },
     {
         id: 'exam-result-management-system',
@@ -105,9 +105,9 @@ export const projectsData = [
         description: 'A web-based system for managing exam results using Node.js, MongoDB, and EJS templating.',
         technologies: ['Node.js', 'MongoDB', 'EJS'],
         category: 'web',
-        image: '/images/projects/exam-result-management-system.png',
-        github_link: 'https://github.com/exam-result-management-system',
-        link: 'https://exam-result-management-system.com', // Replace with actual live URL if available
+        image: '/images/projects/result-management-system.png',
+        github_link: 'https://github.com/codewithdinesh/result-mangement-system',
+        link: 'https://result-mangement-system.onrender.com/',
     },
     {
         id: 'qr-attendance-system',
@@ -115,8 +115,8 @@ export const projectsData = [
         description: 'An Android app for managing attendance through QR code scanning and real-time data synchronization.',
         technologies: ['Android', 'Firebase'],
         category: 'android',
-        image: '/images/projects/qr-attendance-system.png',
-        github_link: 'https://github.com/qr-attendance-system',
-        link: 'https://qr-attendance-system.com', // Replace with actual live URL if available
+        image: '/images/projects/qr_attendance_system.png',
+        github_link: 'https://github.com/codewithdinesh/qr-attendance-android',
+        link: '',
     }
 ];

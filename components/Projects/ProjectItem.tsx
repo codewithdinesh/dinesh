@@ -9,11 +9,11 @@ const ProjectItem: React.FC<ProjectProps> = ({ project }) => {
 
     return (
 
-        <Link href={`/projects/${project.id}`}>
+        <Link href={`/projects/${project?.id}`}>
             <>
                 <div className="bg-slate-800 p-4 rounded-lg shadow-lg hover:bg-slate-700 transition-transform transform hover:scale-105">
                     <img
-                        src={project.image}
+                        src={project?.image}
                         alt={project.title}
                         className="w-full h-40 object-contain rounded-md mb-4 cursor-pointer"
 
