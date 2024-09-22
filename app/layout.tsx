@@ -44,12 +44,11 @@ export const viewport: Viewport = {
             <div className="flex min-h-screen ">
               {/* <div className="flex min-h-screen bg-gradient-to-tl from-slate-500 to-black"> */}
               {/* Sidebar */}
-              <Sidebar />
 
               {/* Main Content */}
-              <main className="flex-grow p-2 ">
-                {children}
-              </main>
+              {/* <main className="flex-grow p-2 "> */}
+              {children}
+              {/* </main> */}
             </div>
 
             {/* Footer */}
