@@ -1,13 +1,13 @@
 export const projectsData = [
     {
-        id: 'healthcare-app',
-        title: 'Healthcare App',
-        description: 'Appointment management, telemedicine, medication manager, health records tracking, emergency services locator, health education, and data security.',
-        technologies: ['Flutter', 'Node.js', 'Firebase'],
+        id: 'jeevika',
+        title: 'Jeevika - Healthcare App',
+        description: "A complete healthcare platform with features Appointment management, telemedicine, medication manager, health records tracking, emergency services locator, and health education",
+        technologies: ['Flutter', 'Firebase', "Material Design"],
         category: 'android',
-        image: '/images/projects/healthcare-app.png',
-        github_link: 'https://github.com/healthcare-app',
-        link: 'https://healthcare-app.com', // Replace with actual live URL if available
+        image: '/images/projects/jeevika.png',
+        github_link: 'https://github.com/codewithdinesh/jeevika',
+        link: 'https://jeevika-blush.vercel.app/',
     },
     {
         id: 'legalsathi',
@@ -20,12 +20,12 @@ export const projectsData = [
         link: 'https://legalsathi.com', // Replace with actual live URL if available
     },
     {
-        id: 'video-social-media-app',
-        title: 'Video Social Media Application',
+        id: 'drustii',
+        title: 'Drustii - Video Social Media Application',
         description: 'A YouTube-like video streaming platform with features such as user authentication, search, recommendation, video uploads, thumbnail generation, and OTP verification.',
         technologies: ['Android', 'AWS', 'Node.js'],
         category: 'android',
-        image: '/images/projects/video-social-media-app.png',
+        image: '/images/projects/drustii.jpg',
         github_link: 'https://github.com/video-social-media-app',
         link: 'https://video-social-media-app.com', // Replace with actual live URL if available
     },
