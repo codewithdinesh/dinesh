@@ -1,17 +1,11 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
 
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
 import Sidebar from "@/components/Sidebar/Sidebar";
 import HeroSection from "@/components/HeroSection";
 import AnimatedBeam from "@/components/AnimatedBeam";
 import Experience from "@/components/Experience/Experience";
 import SkillsList from "@/components/Skills/Skills";
 import ProjectSection from "@/components/Projects/ProjectSection";
+import ContactSection from "@/components/contacts/ContactSection";
 
 
 export default function Home() {
@@ -43,6 +37,8 @@ export default function Home() {
         <ProjectSection />
 
         {/* Contact */}
+
+        <ContactSection />
 
         {/* Footer */}
 

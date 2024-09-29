@@ -5,8 +5,6 @@ export const fontSans = FontSans({
   variable: "--font-sans",
 });
 
-
-
 export const fontPoppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
