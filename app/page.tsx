@@ -6,6 +6,7 @@ import Experience from "@/components/Experience/Experience";
 import SkillsList from "@/components/Skills/Skills";
 import ProjectSection from "@/components/Projects/ProjectSection";
 import ContactSection from "@/components/contacts/ContactSection";
+import GallarySection from "@/components/gallary/GallarySection";
 
 
 export default function Home() {
@@ -36,7 +37,11 @@ export default function Home() {
 
         <ProjectSection />
 
+        <GallarySection />
+
         {/* Contact */}
+
+
 
         <ContactSection />
 

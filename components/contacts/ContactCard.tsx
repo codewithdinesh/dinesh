@@ -22,7 +22,6 @@ const ContactCard = ({ contact }: ContactCardProps) => {
                 </button>
 
 
-                {/* <p>{contact.className}</p> */}
             </Link>
         </Tooltip>
     )
