@@ -24,7 +24,7 @@ const Project = ({ project }: ProjectProps) => {
 
             {/* Project Details */}
 
-            <h1 className="text-3xl md:text-4xl font-bold text-lime-400 mb-4 font-mono  p-4 rounded-md ">
+            <h1 className=" text-lg sm:text-3xl md:text-4xl font-bold text-lime-400 mb-4 font-mono  p-4 rounded-md ">
                 <span className="text-gray-300">
                     <Link href={"/"} >
                         $ ~/dinesh/
@@ -44,7 +44,7 @@ const Project = ({ project }: ProjectProps) => {
 
 
 
-            <div className="flex justify-center items-center ">
+            <div className="flex flex-col xl:flex-row justify-center items-center ">
 
                 {/* Project Image */}
                 <div className="rounded-lg  overflow-hidden flex-1 justify-center">
@@ -58,8 +58,8 @@ const Project = ({ project }: ProjectProps) => {
                 </div>
 
                 {/* Project Details */}
-                <div className=" w-2/6  mx-3 flex flex-col justify-center">
-                    <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                <div className=" w-full xl:w-2/6 m-1  mx-3 flex flex-col justify-center">
+                    <h1 className=" text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4">
                         {project.title}
                     </h1>
                     <p className="text-lg text-gray-300 mb-6">

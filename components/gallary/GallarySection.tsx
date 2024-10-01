@@ -39,7 +39,7 @@ const GallarySection = () => {
             <ColumnsPhotoAlbum
                 photos={GallaryData}
                 columns={3}
-                padding={10}
+                padding={5}
                 onClick={({ photo }) => handlePhotoClick(photo)}
             />
 

@@ -44,6 +44,11 @@ export const GallaryData =
             src: "/images/sih_2023_winner.jpeg",
             title: "SIH 2023 Winner MMCOE",
             width: 350, height: 200
-        }
+        },
+        // {
+        //     src:"/images/playing_on_vr.jpg",
+        //     title:"Playing on VR",
+        //     width: 300, height: 200
+        // }
 
     ];

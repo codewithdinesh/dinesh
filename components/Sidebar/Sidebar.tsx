@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { educationIcon, GithubIcon, LinkedinIcon, locationIcon, titleIcon, TwitterIcon, InstaIcon } from "../icons";
 import SidebarItem from "./SidebarItem";
 import SocialIcon from "./SocialIcon";
+import { UserDetails as Details } from "@/config/sidebar";
 
 const Sidebar: React.FC = () => {
     const [open, setOpen] = useState<boolean>(false);
@@ -41,30 +42,9 @@ const Sidebar: React.FC = () => {
         };
     }, []);
 
-    const Details = {
-        name: "Dinesh Rathod",
-        email: "dineshrathod0198@gmail.com",
-        title: "Full Stack Developer | Data Scientist  | AI Engineer",
-        location: "Pune, India",
-        education: "Bachelor of Engineering in Artificial Intelligence and Data Science",
-        links: {
-            github: "https://www.github.com/codewithdinesh",
-            linkedin: "https://www.linkedin.com/in/dineshrathod03",
-            twitter: "https://www.twitter.com/codewithdinesh",
-            instagram: "https://www.instagram.com/dineshrathod.ai",
-            discord: "https://discord.gg/8uJ8J2b",
-            huggingface: "https://huggingface.co/dineshrathod",
-            kaggle: "https://www.kaggle.com/dineshrathod",
-            medium: "https://dineshrathod.medium.com",
-            dev: "https://dev.to/dineshrathod",
-            youtube: "https://www.youtube.com/c/codewithdinesh",
-
-        },
-
-    }
 
     return (
-        <div className="fixed z-40 md:relative m-2 rounded-md  w-full md:w-3/12 h-full ">
+        <div className="fixed z-40 md:relative m-2 rounded-md  w-full md:w-3/12 h-fit md:h-full ">
 
             {/* Sidebar Toggle Button for Mobile */}
 
@@ -81,6 +61,7 @@ const Sidebar: React.FC = () => {
             }
 
             {/* Sidebar */}
+
             <aside
                 ref={sidebarRef}
                 className={`bg-gradient-to-tl from-slate-500 to-slate-700 md:from-slate-500/20 font-semibold md:to-slate-700/20 rounded-md glassmorphic-bg md:bg-opacity-20  p-4  md:w-full h-full transition-transform duration-300 overflow-y-auto scrollbar
@@ -110,6 +91,7 @@ const Sidebar: React.FC = () => {
                         DINESH RATHOD
                     </h2>
                 </div>
+
 
                 {/* Profile Details */}
                 <div className="block mt-4">
