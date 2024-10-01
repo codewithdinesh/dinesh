@@ -48,14 +48,16 @@ export const viewport: Viewport = {
             </div>
 
             {/* Footer */}
-            <footer className="w-full flex items-center justify-center py-3">
+            <footer className="w-full flex items-center justify-center py-3 p-3 bg-slate-300 mt-3 bg-opacity-10">
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
                 href="https://github.com/codewithdinesh"
                 title="Dinesh Rathod"
               >
-                By @codewithdinesh
+                <p className="  text-xl mt-4">
+                  Designed and developed with ❤️ by Dinesh Rathod
+                </p>
               </Link>
             </footer>
 

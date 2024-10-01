@@ -16,7 +16,7 @@ const HeroSection = () => {
             {/* Content */}
             <div className="relative p-4 text-center">
                 <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-green-400">
-                    Hi, I'm <span className="text-neon font-extrabold">Dinesh Rathod</span>
+                    Hi, I&apos;m <span className="text-neon font-extrabold">Dinesh Rathod</span>
                 </h1>
                 <p className="text-lg md:text-xl my-6 text-gray-300">
                     <span className="text-neon-green">Full-stack developer</span> specializing in building <span className="text-neon-yellow font-bold">beautiful</span> and <span className="text-neon-blue font-bold">functional</span> web applications. Passionate about collaborating with <span className="text-neon-orange font-bold">diverse teams</span> to bring ideas to life.

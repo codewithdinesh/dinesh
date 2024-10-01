@@ -4,7 +4,6 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; // Importing icons from react-icons
 
-
 const Project: React.FC<ProjectProps> = ({ project }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -33,12 +32,13 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             <div className="flex flex-col xl:flex-row justify-center items-center">
                 {/* Project Image */}
                 <div className="rounded-lg overflow-hidden flex-1 justify-center">
-                    <img
-                        src={project.image}
-                        alt={project.title}
-                        className="h-full min-w-full max-h-screen object-contain rounded-md hover:cursor-zoom-in"
-                        onClick={handleImageClick}
-                    />
+                    <button onClick={handleImageClick} className="h-full min-w-full max-h-screen flex items-center justify-center rounded-md focus:outline-none">
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="object-contain rounded-md hover:cursor-zoom-in"
+                        />
+                    </button>
                 </div>
 
                 {/* Project Details */}
@@ -47,7 +47,6 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                         {project.title}
                     </h1>
                     <p className="text-lg text-gray-300 mb-6">{project.description}</p>
-
                     {/* Technologies */}
                     <h3 className="text-xl text-indigo-400 font-semibold mb-2">Technologies Used:</h3>
                     <ul className="list-disc list-inside space-y-1 text-gray-300 mb-6">
@@ -66,8 +65,6 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                     </div>
 
                     <div>
-
-
                         {/* Links */}
                         <div className="space-x-4 flex ">
                             {project.github_link && (
@@ -90,9 +87,7 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
                                     <FaExternalLinkAlt className="mr-2" /> Live Demo
                                 </Link>
                             )}
-
                         </div>
-
                     </div>
                 </div>
             </div>
