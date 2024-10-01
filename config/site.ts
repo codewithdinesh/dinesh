@@ -3,6 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "Dinesh Rathod",
   description: "Full stack Web Developer",
+  siteUrl: "https://dineshrathod.vercel.app/",
   navItems: [
     {
       label: "Home",
