@@ -15,7 +15,7 @@ const ContactSection = () => {
             <div className="bg-slate-200 bg-opacity-10 p-8 rounded-md shadow-lg  ">
 
 
-                <div className="flex flex-col md:flex-row justify-center gap-6">
+                <div className="flex flex-col md:flex-row justify-center gap-2">
 
                     {
                         contacts.map((contact) => (

@@ -9,6 +9,7 @@ import ContactSection from "@/components/contacts/ContactSection";
 import GallarySection from "@/components/gallary/GallarySection";
 
 
+
 export default function Home() {
   return (
 
@@ -21,7 +22,8 @@ export default function Home() {
 
       <section className="flex-grow p-2 flex-1 ">
         {/* Main Content */}
-
+        {/* 
+        <Navbar /> */}
 
         <HeroSection />
 

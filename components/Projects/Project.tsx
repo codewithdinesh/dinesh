@@ -24,7 +24,7 @@ const Project = ({ project }: ProjectProps) => {
 
             {/* Project Details */}
 
-            <h1 className=" text-lg sm:text-3xl md:text-4xl font-bold text-lime-400 mb-4 font-mono  p-4 rounded-md ">
+            <h1 className=" text-xl sm:text-3xl md:text-4xl font-bold text-lime-400 mb-4 font-mono  p-4 rounded-md ">
                 <span className="text-gray-300">
                     <Link href={"/"} >
                         $ ~/dinesh/

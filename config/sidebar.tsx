@@ -1,7 +1,7 @@
 export const UserDetails = {
     name: "Dinesh Rathod",
     email: "dineshrathod0198@gmail.com",
-    title: "Full Stack Developer | Data Scientist  | AI Engineer",
+    title: "Full Stack Developer | Androd Developer | Data Analyst",
     location: "Pune, India",
     education: "Bachelor of Engineering in Artificial Intelligence and Data Science",
     links: {
