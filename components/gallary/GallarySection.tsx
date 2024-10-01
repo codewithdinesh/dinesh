@@ -8,48 +8,30 @@ import "react-photo-album/rows.css";
 import { GallaryData } from '@/config/gallary';
 
 const GallarySection = () => {
+    const [lightboxIndex, setLightboxIndex] = useState<number | null>(null); // Track the index of the clicked photo
 
-    const [lightboxPhoto, setLightboxPhoto] = useState<Photo | null>(null);
-
-
-
-
-    const handlePhotoClick = (photo: Photo) => {
-        setLightboxPhoto(photo);
+    const handlePhotoClick = (index: number) => {
+        setLightboxIndex(index); // Set the index of the clicked photo
     };
 
     return (
         <div>
             <h2 className="text-3xl font-bold text-white mb-6 text-center">Gallery</h2>
-            {/* <MasonryPhotoAlbum
-                photos={photos}
-                columns={3}
-                padding={10}
-                onClick={({ photo }) => handlePhotoClick(photo)}
-
-            />
- */}
-
-            {/* <RowsPhotoAlbum
-                photos={photos}
-                padding={10}
-                onClick={({ photo }) => handlePhotoClick(photo)}
-            /> */}
 
             <ColumnsPhotoAlbum
                 photos={GallaryData}
                 columns={3}
                 padding={5}
-                onClick={({ photo }) => handlePhotoClick(photo)}
+                onClick={({ index }) => handlePhotoClick(index)} // Use index instead of photo
             />
 
-            {lightboxPhoto && (
+            {lightboxIndex !== null && (
                 <Lightbox
-                    open={Boolean(lightboxPhoto)}
-                    close={() => setLightboxPhoto(null)}
-                    slides={[lightboxPhoto]} // Display the clicked photo in Lightbox
+                    open={lightboxIndex !== null}
+                    close={() => setLightboxIndex(null)}
+                    slides={GallaryData} // Pass all photos to the Lightbox
                     carousel={{ finite: true }}
-
+                    index={lightboxIndex} // Set the initial image to the clicked one
                     styles={{ root: { "--yarl__color_backdrop": "rgba(0, 0, 0, .8)" } }}
                     controller={{ closeOnBackdropClick: true, closeOnPullUp: true, closeOnPullDown: true }}
                 />
