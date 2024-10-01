@@ -2,13 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-
-* {
-    /* font-family: "Poppins", sans-serif; */
-    /* font-family: "Rubik Vinyl", sans-serif; */
-    /* font-family: "Comfortaa", sans-serif; */
-
+html {
+    scroll-behavior: smooth;
 }
+
 
 
 .scrollbar {

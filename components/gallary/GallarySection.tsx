@@ -16,7 +16,7 @@ const GallarySection = () => {
 
     return (
         <div>
-            <h2 className="text-3xl font-bold text-white mb-6 text-center">Gallery</h2>
+            <h2 className="text-3xl font-bold text-white mb-6 text-center" id='gallary'>Gallery</h2>
 
             <ColumnsPhotoAlbum
                 photos={GallaryData}

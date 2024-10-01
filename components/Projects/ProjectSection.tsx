@@ -8,7 +8,7 @@ const ProjectSection: React.FC = () => {
     const limitedProjects = projectsData.slice(0, 6);
 
     return (
-        <section className="flex-1 py-12">
+        <section className="flex-1 py-12" id='projects'>
             <h2 className="text-3xl font-semibold  mb-6 text-center">Featured Projects</h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {limitedProjects.map((project, index) => (

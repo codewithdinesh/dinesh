@@ -1,4 +1,4 @@
-
+"use client"
 import Project from '@/components/Projects/Project';
 import { projectsData } from '@/config/projects';
 import Link from 'next/link';

@@ -3,7 +3,7 @@ interface ProjectItemProps {
     title: string;
     description: string;
     technologies: string[];
-    category: string;
+    category: string[];
     github_link: string;
     link: string;
     image: string;
@@ -18,7 +18,7 @@ interface ProjectProps {
         image: string;
         description: string;
         technologies: string[];
-        category: string;
+        category: string[];
         github_link?: string;
         link?: string;
     };
