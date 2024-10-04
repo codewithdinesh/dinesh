@@ -21,7 +21,7 @@ export const GallaryData =
             width: 300, height: 400
         },
         {
-            src: '/images/gdsc_1.jpg',
+            src: '/images/gdsc_1.JPG',
             title: 'GDSC',
             width: 300, height: 200
         },
