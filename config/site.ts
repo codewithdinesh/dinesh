@@ -62,7 +62,7 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/codewithdinehs",
+    github: "https://github.com/codewithdinesh",
     twitter: "https://twitter.com/codewithdinesh",
     instagram: "https://instagram.com/dineshrathod.ai",
     linkedin: "https://linkedin.com/in/dineshrathod03"
