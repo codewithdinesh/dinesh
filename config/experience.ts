@@ -18,12 +18,29 @@ function calculateMonthsBetween(startDate: string) {
 
 
 export const ExperiencesData: ExperienceItem[] = [
+
+       {
+        title: "Software Developer Intern",
+        company: "Prostruct Engineering Inc",
+        startDate: "Feb 2025",
+        endDate: "Present",
+        experienceMonth: calculateMonthsBetween("Feb 2025") ,
+        description: "Design and develop internal tools to automate workflows, improve operational efficiency, solve company-specific challenges with custom software solutions, and enhance productivity through automation."
+    },
+           {
+        title: "Backend Developer Intern",
+        company: "IVC Ventures Pvt. Ltd.",
+        startDate: "Jan 2025",
+        endDate: "March 2025",
+        experienceMonth: 2 ,
+        description: "Working as a founding member to develop the MVP, focusing on backend development, implementing database structures, and integrating APIs to support core functionalities."
+    },
     {
         title: "Software Developer Intern",
         company: "Dista Technologies Private Limited",
         startDate: "July 2024",
-        endDate: "Present",
-        experienceMonth: calculateMonthsBetween("July 2024"),
+        endDate: "Dec 2024",
+        experienceMonth: 5,
         description: "Contributing to optimize Location Intelligence product using GIS tools and ML. Analyzed satellite images and maps to enhance platform performance and provide geospatial insights."
     },
     {
