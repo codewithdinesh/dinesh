@@ -34,7 +34,11 @@ const ExperinceItem = ({ experience, index }: ExperienceItemProps,) => {
                         <span>{experience.endDate}</span>
                     </div>
                     <div>
-                        {experience.experienceMonth} months
+                        {experience.experienceMonth >= 12 ?
+                            `${Math.floor(experience.experienceMonth / 12)} year${Math.floor(experience.experienceMonth / 12) > 1 ? 's' : ''} ${experience.experienceMonth % 12 ? `${experience.experienceMonth % 12} month${experience.experienceMonth % 12 > 1 ? 's' : ''}` : ''}`
+                            :
+                            `${experience.experienceMonth} month${experience.experienceMonth > 1 ? 's' : ''}`
+                        }
                     </div>
                 </div>
             </Card>

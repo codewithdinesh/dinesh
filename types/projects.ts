@@ -1,4 +1,4 @@
-interface ProjectItemProps {
+export interface ProjectItemProps {
     id: string;
     title: string;
     description: string;
@@ -7,11 +7,9 @@ interface ProjectItemProps {
     github_link: string;
     link: string;
     image: string;
-
 }
 
-
-interface ProjectProps {
+export interface ProjectProps {
     project: {
         id: string;
         title: string;
@@ -24,12 +22,11 @@ interface ProjectProps {
     };
 }
 
-interface ProjectsProps {
+export interface ProjectsProps {
     projects: ProjectItemProps[];
 }
 
-
-interface ProjectPageProps {
+export interface ProjectPageProps {
     params: {
         id: string;
     };

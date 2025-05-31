@@ -1,5 +1,5 @@
 {
-	"name": "next-app-template",
+	"name": "codewithdinesh",
 	"version": "0.0.1",
 	"private": true,
 	"scripts": {
@@ -56,5 +56,21 @@
 		"tailwind-variants": "0.1.20",
 		"tailwindcss": "3.4.3",
 		"typescript": "5.0.4"
-	}
+	},
+	"description": "Dinesh Rathod Portfolio website",
+	"main": "next.config.js",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/codewithdinesh/codewithdinesh.github.io.git"
+	},
+	"keywords": [
+		"dinesh",
+		"rathod"
+	],
+	"author": "codewithdinesh",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/codewithdinesh/codewithdinesh.github.io/issues"
+	},
+	"homepage": "https://github.com/codewithdinesh/codewithdinesh.github.io#readme"
 }

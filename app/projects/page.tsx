@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import ProjectItem from '@/components/Projects/ProjectItem';
 import { projectsData } from '@/config/projects';
-import Link from 'next/link';
+import type { ProjectItemProps } from '@/types/projects';
 
 
 const ProjectsPage: React.FC = () => {
