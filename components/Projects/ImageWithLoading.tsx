@@ -17,17 +17,38 @@ const ImageWithLoading: React.FC<ImageWithLoadingProps> = ({
 }) => {
     const [isLoading, setIsLoading] = useState(true);
 
+    // Render image with or without button wrapper based on onClick presence
+    const renderImage = () => {
+        const imgElement = (<img
+            alt={alt}
+            className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
+            src={src}
+            style={{ objectFit: "contain" }}
+            onLoad={() => setIsLoading(false)}
+        />
+        );
+
+        // If onClick is provided, wrap image in a button for accessibility
+        if (onClick) {
+            return (<button
+                type="button"
+                className="w-full h-full p-0 border-0 bg-transparent"
+                aria-label={`View ${alt}`}
+                onClick={onClick}
+            >
+                {imgElement}
+            </button>
+            );
+        }
+
+        // Return just the image if no onClick handler
+        return imgElement;
+    };
+
     return (
         <div className="relative w-full h-full min-h-[300px]">
             {/* Image */}
-            <img
-                alt={alt}
-                className={`${className} ${isLoading ? "opacity-0" : "opacity-100"} transition-opacity duration-300`}
-                onClick={onClick}
-                onLoad={() => setIsLoading(false)}
-                src={src}
-                style={{ objectFit: "contain" }}
-            />
+            {renderImage()}
 
             {/* Loading Placeholder */}
             {isLoading && (
