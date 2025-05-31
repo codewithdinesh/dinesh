@@ -2,7 +2,10 @@
 
 import Link from 'next/link';
 import React, { useState } from 'react';
+import Image from 'next/image';
+import type { ProjectProps } from '@/types/projects';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa'; // Importing icons from react-icons
+import ImageWithLoading from './ImageWithLoading';
 
 const Project: React.FC<ProjectProps> = ({ project }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -30,10 +33,9 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             </h1>
 
             <div className="flex flex-col xl:flex-row justify-center items-center">
-                {/* Project Image */}
-                <div className="rounded-lg overflow-hidden flex-1 justify-center">
+                {/* Project Image */}                <div className="rounded-lg overflow-hidden flex-1 justify-center">
                     <button onClick={handleImageClick} className="h-full min-w-full max-h-screen flex items-center justify-center rounded-md focus:outline-none">
-                        <img
+                        <ImageWithLoading
                             src={project.image}
                             alt={project.title}
                             className="object-contain rounded-md hover:cursor-zoom-in"
@@ -95,12 +97,11 @@ const Project: React.FC<ProjectProps> = ({ project }) => {
             {/* Modal for Image Viewing */}
             {isModalOpen && (
                 <div className="fixed inset-0 bg-opacity-75 p-10 m-10 rounded-md flex items-center justify-center z-50">
-                    <div className="relative">
-                        <img
-                            src={project.image}
-                            alt={project.title}
-                            className="max-w-full max-h-screen rounded-lg"
-                        />
+                    <div className="relative">                        <ImageWithLoading
+                        src={project.image}
+                        alt={project.title}
+                        className="max-w-full max-h-screen rounded-lg"
+                    />
                         <button
                             id="toggleSidebar"
                             className="absolute right-2 top-2 text-green-500 bg-slate-900 border border-green-500 rounded-full p-2 px-3 transition-transform duration-300"

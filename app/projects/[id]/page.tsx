@@ -1,8 +1,10 @@
-"use client"
-import Project from '@/components/Projects/Project';
-import { projectsData } from '@/config/projects';
+"use client";
+
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import Project from '@/components/Projects/Project';
+import { projectsData } from '@/config/projects';
+import type { ProjectPageProps } from '@/types/projects';
 
 
 
