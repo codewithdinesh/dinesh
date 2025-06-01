@@ -8,14 +8,12 @@ export const fontSans = FontSans({
 export const fontPoppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
-  weight: "300"
+  weight: "300",
 });
 
 export const comfortaa = Comfortaa({
-  subsets: ['latin'],
+  subsets: ["latin"],
   weight: "300",
-  variable: '--font-comfortaa',
-  display: 'swap',
-})
-
-
+  variable: "--font-comfortaa",
+  display: "swap",
+});

@@ -1,12 +1,11 @@
 import "@/styles/globals.css";
 import { Metadata, Viewport } from "next";
 import { Link } from "@nextui-org/link";
-import clsx from "clsx";
 
 import { Providers } from "./providers";
+
 import { siteConfig } from "@/config/site";
-import { comfortaa, fontSans } from "@/config/fonts";
-import Sidebar from "@/components/Sidebar/Sidebar";
+import { comfortaa } from "@/config/fonts";
 import AnimatedBeam from "@/components/AnimatedBeam";
 
 // SEO Metadata
@@ -17,7 +16,9 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   keywords: "Dinesh Rathod, Portfolio, Web Development, Next.js, React",
-  authors: [{ name: "Dinesh Rathod", url: "https://github.com/codewithdinesh" }],
+  authors: [
+    { name: "Dinesh Rathod", url: "https://github.com/codewithdinesh" },
+  ],
   icons: {
     icon: "/favicon.ico",
   },
@@ -33,7 +34,7 @@ export const metadata: Metadata = {
         height: 630,
       },
     ],
-    type: 'website',
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
@@ -46,7 +47,6 @@ export const metadata: Metadata = {
         alt: siteConfig.name,
       },
     ],
-
   },
 };
 
@@ -63,14 +63,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang="en" className={comfortaa.variable}>
+    <html suppressHydrationWarning className={comfortaa.variable} lang="en">
       <head />
-      <body className={`${comfortaa.className} min-h-screen bg-background antialiased`}>
+      <body
+        className={`${comfortaa.className} min-h-screen bg-background antialiased`}
+      >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <AnimatedBeam>
-            <div className="flex min-h-screen">
-              {children}
-            </div>
+            <div className="flex min-h-screen">{children}</div>
 
             {/* Footer */}
             <footer className="w-full flex items-center justify-center py-3 p-3 bg-slate-300 mt-3 bg-opacity-10">
@@ -85,7 +85,6 @@ export default function RootLayout({
                 </p>
               </Link>
             </footer>
-
           </AnimatedBeam>
         </Providers>
       </body>

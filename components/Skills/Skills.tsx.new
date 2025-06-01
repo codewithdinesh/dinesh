@@ -1,0 +1,133 @@
+"use client";
+
+import React from "react";
+import { motion } from "framer-motion";
+import { ScrollAnimation } from "../ScrollAnimation";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import SkillItem from "./SkillItem";
+
+const skillCategories = [
+  {
+    category: "Web Development",
+    icon: "🌐",
+    skills: [
+      { skill: "JavaScript", level: "Expert" },
+      { skill: "Next.js", level: "Advanced" },
+      { skill: "React.js", level: "Advanced" },
+      { skill: "Node.js", level: "Advanced" },
+      { skill: "Express.js", level: "Intermediate" },
+      { skill: "HTML5", level: "Expert" },
+      { skill: "CSS", level: "Expert" },
+      { skill: "Tailwind CSS", level: "Intermediate" },
+      { skill: "Bootstrap", level: "Intermediate" },
+    ],
+  },
+  {
+    category: "Application Development",
+    icon: "📱",
+    skills: [
+      { skill: "Android Development", level: "Advanced" },
+      { skill: "Flutter", level: "Advanced" },
+      { skill: "Material Design", level: "Intermediate" },
+      { skill: "React Native", level: "Intermediate" },
+      { skill: "Expo", level: "Intermediate" },
+    ],
+  },
+  {
+    category: "Programming Languages",
+    icon: "💻",
+    skills: [
+      { skill: "Python", level: "Expert" },
+      { skill: "C++", level: "Intermediate" },
+      { skill: "Java", level: "Intermediate" },
+      { skill: "Kotlin", level: "Intermediate" },
+      { skill: "TypeScript", level: "Intermediate" },
+    ],
+  },
+  {
+    category: "Databases & Cloud",
+    icon: "☁️",
+    skills: [
+      { skill: "MySQL", level: "Intermediate" },
+      { skill: "MongoDB", level: "Intermediate" },
+      { skill: "Google Firebase", level: "Advanced" },
+      { skill: "AWS", level: "Intermediate" },
+      { skill: "Vercel", level: "Intermediate" },
+    ],
+  },
+  {
+    category: "Version Control & DevOps",
+    icon: "🔄",
+    skills: [
+      { skill: "Git", level: "Advanced" },
+      { skill: "GitHub", level: "Advanced" },
+      { skill: "NPM", level: "Intermediate" },
+      { skill: "Postman", level: "Intermediate" },
+    ],
+  },
+  {
+    category: "Data Science & AI",
+    icon: "🧠",
+    skills: [
+      { skill: "Pandas", level: "Intermediate" },
+      { skill: "NumPy", level: "Intermediate" },
+      { skill: "Matplotlib", level: "Intermediate" },
+      { skill: "Seaborn", level: "Intermediate" },
+      { skill: "Scikit-learn", level: "Intermediate" },
+      { skill: "TensorFlow", level: "Beginner" },
+      { skill: "Data Visualization", level: "Intermediate" },
+    ],
+  },
+];
+
+const SkillsList = () => {
+  return (
+    <section id="skills" className="py-16 relative">
+      <ScrollAnimation direction="up" delay={0.1}>
+        <h2 className="text-4xl font-bold text-center mb-10">Skills & Expertise</h2>
+      </ScrollAnimation>
+      
+      <ScrollAnimation direction="up" delay={0.2}>
+        <p className="text-center text-muted-foreground max-w-xl mx-auto mb-12 text-lg">
+          I've developed a diverse skillset through years of building different projects and working with various technologies.
+        </p>
+      </ScrollAnimation>
+
+      <Tabs defaultValue="Web Development" className="w-full max-w-5xl mx-auto">
+        <TabsList className="flex flex-wrap justify-center mb-8 h-auto p-1 bg-background/50 backdrop-blur-sm border border-border/50 rounded-full">
+          {skillCategories.map((category, index) => (
+            <TabsTrigger
+              key={category.category}
+              value={category.category}
+              className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground py-2 px-4 rounded-full transition-all"
+            >
+              <span className="mr-2">{category.icon}</span>
+              {category.category}
+            </TabsTrigger>
+          ))}
+        </TabsList>
+        
+        {skillCategories.map((category) => (
+          <TabsContent 
+            key={category.category} 
+            value={category.category}
+            className="focus-visible:outline-none focus-visible:ring-0"
+          >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {category.skills.map((skill, skillIndex) => (
+                <SkillItem
+                  key={skill.skill}
+                  skill={skill.skill}
+                  level={skill.level}
+                  index={skillIndex}
+                />
+              ))}
+            </div>
+          </TabsContent>
+        ))}
+      </Tabs>
+    </section>
+  );
+};
+
+export default SkillsList;
