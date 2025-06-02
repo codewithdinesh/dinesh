@@ -29,10 +29,13 @@ export function NavigationMenu() {
       setScrolled(window.scrollY > 10);
       // Find which section is in view
       const sections = navLinks.map((link) => link.href.replace("#", ""));
+
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
+
         if (element) {
           const rect = element.getBoundingClientRect();
+
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(section);
             break;
@@ -40,7 +43,9 @@ export function NavigationMenu() {
         }
       }
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -89,13 +94,13 @@ export function NavigationMenu() {
           {navLinks.map((link) => (
             <li key={link.href}>
               <button
-                type="button"
                 className={cn(
                   "relative px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   activeSection === link.href.replace("#", "")
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary",
                 )}
+                type="button"
                 onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.label}
@@ -113,6 +118,7 @@ export function NavigationMenu() {
           ))}
         </ul>
       </nav>
+
       <MobileNavigation
         activeSection={activeSection}
         setActiveSection={setActiveSection}
@@ -167,6 +173,7 @@ function MobileNavigation({
           )}
         </svg>
       </button>
+
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -180,13 +187,13 @@ function MobileNavigation({
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <button
-                    type="button"
                     className={cn(
                       "block px-4 py-2 text-sm",
                       activeSection === link.href.replace("#", "")
                         ? "text-primary font-medium"
                         : "text-muted-foreground hover:text-primary",
                     )}
+                    type="button"
                     onClick={(e) => {
                       e.preventDefault();
                       const targetId = link.href.replace("#", "");
@@ -195,8 +202,11 @@ function MobileNavigation({
                       if (element) {
                         // Calculate offset to position section in view with space above
                         const navHeight = 80; // Approximate height of the nav + extra margin
-                        const elementPosition = element.getBoundingClientRect().top;
-                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                        const elementPosition =
+                          element.getBoundingClientRect().top;
+                        const offsetPosition =
+                          elementPosition + window.pageYOffset - navHeight;
 
                         // Update active section and close mobile menu
                         setActiveSection(targetId);
