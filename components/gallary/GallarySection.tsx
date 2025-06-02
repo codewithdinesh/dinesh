@@ -4,72 +4,23 @@ import React, { useState, useEffect, useCallback } from "react";
 import Lightbox from "yet-another-react-lightbox";
 import Zoom from "yet-another-react-lightbox/plugins/zoom";
 import Captions from "yet-another-react-lightbox/plugins/captions";
+import PhotoAlbum from "react-photo-album";
 import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/captions.css";
 import "react-photo-album/masonry.css";
 import { motion } from "framer-motion";
 import { AiOutlineLoading } from "react-icons/ai";
 
-import ImageCard from "./ImageCard";
-
 import { GallaryData } from "@/config/gallary";
 import { ScrollAnimation, ScrollReveal } from "@/components/ScrollAnimation";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-
-interface Photo {
-    src: string;
-    title: string;
-    width: number;
-    height: number;
-    alt?: string;
-    description?: string;
-    category?: string;
-}
-
-interface ImageGroup {
-    id: string;
-    title: string;
-    images: Photo[];
-}
-
-// Group gallery images by category if they have one
-const groupImagesByCategory = (images: Photo[]): ImageGroup[] => {
-    const categories: Record<string, ImageGroup> = {};
-    const allImages: ImageGroup = { id: "all", title: "All", images: images };
-
-    images.forEach((image) => {
-        if (image.category) {
-            if (!categories[image.category]) {
-                categories[image.category] = {
-                    id: image.category.toLowerCase().replace(/\s+/g, "-"),
-                    title: image.category,
-                    images: [],
-                };
-            }
-
-            categories[image.category].images.push(image);
-        }
-    });
-
-    return [allImages, ...Object.values(categories)];
-};
-
-const imageGroups = groupImagesByCategory(GallaryData);
 
 const GallarySection = () => {
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
     const [loading, setLoading] = useState(true);
-    const [activeCategory, setActiveCategory] = useState("all");
-    const [activeImages, setActiveImages] = useState<Photo[]>(GallaryData);
-    const [lightboxSlides, setLightboxSlides] = useState<Photo[]>(GallaryData);
 
-    const handlePhotoClick = useCallback(
-        (index: number, categoryImages: Photo[]) => {
-            setLightboxSlides(categoryImages);
-            setLightboxIndex(index);
-        },
-        [],
-    );
+    const handlePhotoClick = useCallback((index: number) => {
+        setLightboxIndex(index);
+    }, []);
 
     useEffect(() => {
         const allImages = GallaryData.map((photo) => {
@@ -92,25 +43,15 @@ const GallarySection = () => {
         });
     }, []);
 
-    useEffect(() => {
-        const category = imageGroups.find(
-            (group: ImageGroup) => group.id === activeCategory,
-        );
-
-        if (category) {
-            setActiveImages(category.images);
-        }
-    }, [activeCategory]);
-
     const renderGallery = () => {
         if (loading) {
             return (
                 <motion.div
                     animate={{ opacity: 1 }}
                     className="flex h-96 flex-col items-center justify-center"
+                    id="gallery"
                     initial={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
-                    id="gallery"
                 >
                     <AiOutlineLoading className="mb-4 animate-spin text-4xl text-green-500" />
                     <div className="relative m-2 w-full max-w-xs">
@@ -128,15 +69,18 @@ const GallarySection = () => {
 
         return (
             <ScrollReveal>
-                <div className="mb-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-                    {activeImages.map((photo, index) => (
-                        <ImageCard
-                            key={`${photo.src}-${index}`}
-                            photo={photo}
-                            onClick={() => handlePhotoClick(index, activeImages)}
-                        />
-                    ))}
-                </div>
+                <PhotoAlbum
+                    columns={(containerWidth) => {
+                        if (containerWidth < 768) return 1;
+                        if (containerWidth < 1024) return 2;
+
+                        return 4;
+                    }}
+                    layout="masonry"
+                    photos={GallaryData}
+                    spacing={8}
+                    onClick={({ index }) => handlePhotoClick(index)}
+                />
             </ScrollReveal>
         );
     };
@@ -159,28 +103,8 @@ const GallarySection = () => {
                 </p>
             </ScrollAnimation>
 
-            {/* Category tabs */}
             <ScrollAnimation className="mb-8" direction="left">
-                <Tabs
-                    className="w-full"
-                    defaultValue="all"
-                    value={activeCategory}
-                    onValueChange={setActiveCategory}
-                >
-                    <TabsList className="mb-8 grid w-full grid-cols-2 md:grid-cols-4 lg:grid-cols-5">
-                        {imageGroups.map((group: ImageGroup) => (
-                            <TabsTrigger
-                                key={group.id}
-                                className="data-[state=active]:bg-green-600 data-[state=active]:text-white"
-                                value={group.id}
-                            >
-                                {group.title}
-                            </TabsTrigger>
-                        ))}
-                    </TabsList>
-
-                    {renderGallery()}
-                </Tabs>
+                {renderGallery()}
             </ScrollAnimation>
 
             {lightboxIndex !== null && (
@@ -196,10 +120,10 @@ const GallarySection = () => {
                     index={lightboxIndex}
                     open={lightboxIndex !== null}
                     plugins={[Zoom, Captions]}
-                    slides={lightboxSlides.map((slide) => ({
+                    slides={GallaryData.map((slide) => ({
                         ...slide,
-                        title: slide.title || slide.alt || "",
-                        description: slide.description || "",
+                        title: slide.title || "",
+                        description: "",
                     }))}
                     styles={{
                         root: { "--yarl__color_backdrop": "rgba(0, 0, 0, .9)" },
