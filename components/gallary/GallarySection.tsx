@@ -110,6 +110,7 @@ const GallarySection = () => {
                     className="flex h-96 flex-col items-center justify-center"
                     initial={{ opacity: 0 }}
                     transition={{ duration: 0.5 }}
+                    id="gallery"
                 >
                     <AiOutlineLoading className="mb-4 animate-spin text-4xl text-green-500" />
                     <div className="relative m-2 w-full max-w-xs">
@@ -144,7 +145,7 @@ const GallarySection = () => {
         <motion.div
             animate={{ opacity: 1 }}
             className="container relative mx-auto overflow-hidden px-4 py-16"
-            id="gallary"
+            id="gallery"
             initial={{ opacity: 0 }}
             transition={{ duration: 0.5 }}
         >

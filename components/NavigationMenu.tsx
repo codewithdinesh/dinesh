@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 
 import { cn } from "@/lib/utils";
 
@@ -25,20 +24,15 @@ export function NavigationMenu() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
+    // Only handle scroll for background effect and active section highlight
     const handleScroll = () => {
-      // Add background when scrolled
       setScrolled(window.scrollY > 10);
-
       // Find which section is in view
       const sections = navLinks.map((link) => link.href.replace("#", ""));
-
       for (const section of sections.reverse()) {
         const element = document.getElementById(section);
-
         if (element) {
           const rect = element.getBoundingClientRect();
-
-          // If section is in view
           if (rect.top <= 100 && rect.bottom >= 100) {
             setActiveSection(section);
             break;
@@ -46,14 +40,15 @@ export function NavigationMenu() {
         }
       }
     };
-
     window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
+  // Smooth scroll to section with proper offset to keep entire page visible
   const handleNavClick = (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLButtonElement>,
     href: string,
   ) => {
     e.preventDefault();
@@ -61,8 +56,19 @@ export function NavigationMenu() {
     const element = document.getElementById(targetId);
 
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      // Calculate offset to position section in view with space above
+      const navHeight = 80; // Approximate height of the nav + extra margin
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      // Update active section
       setActiveSection(targetId);
+
+      // Smooth scroll with window.scrollTo instead of scrollIntoView
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -82,14 +88,14 @@ export function NavigationMenu() {
         <ul className="flex space-x-2">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
+              <button
+                type="button"
                 className={cn(
                   "relative px-4 py-2 rounded-full text-sm font-medium transition-colors",
                   activeSection === link.href.replace("#", "")
                     ? "text-primary"
                     : "text-muted-foreground hover:text-primary",
                 )}
-                href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
               >
                 {link.label}
@@ -102,12 +108,11 @@ export function NavigationMenu() {
                     transition={{ duration: 0.3 }}
                   />
                 )}
-              </Link>
+              </button>
             </li>
           ))}
         </ul>
       </nav>
-
       <MobileNavigation
         activeSection={activeSection}
         setActiveSection={setActiveSection}
@@ -162,7 +167,6 @@ function MobileNavigation({
           )}
         </svg>
       </button>
-
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -175,28 +179,39 @@ function MobileNavigation({
             <ul className="py-2">
               {navLinks.map((link) => (
                 <li key={link.href}>
-                  <Link
+                  <button
+                    type="button"
                     className={cn(
                       "block px-4 py-2 text-sm",
                       activeSection === link.href.replace("#", "")
                         ? "text-primary font-medium"
                         : "text-muted-foreground hover:text-primary",
                     )}
-                    href={link.href}
                     onClick={(e) => {
                       e.preventDefault();
                       const targetId = link.href.replace("#", "");
                       const element = document.getElementById(targetId);
 
                       if (element) {
-                        element.scrollIntoView({ behavior: "smooth" });
+                        // Calculate offset to position section in view with space above
+                        const navHeight = 80; // Approximate height of the nav + extra margin
+                        const elementPosition = element.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+                        // Update active section and close mobile menu
                         setActiveSection(targetId);
                         setIsOpen(false);
+
+                        // Smooth scroll with window.scrollTo
+                        window.scrollTo({
+                          top: offsetPosition,
+                          behavior: "smooth",
+                        });
                       }
                     }}
                   >
                     {link.label}
-                  </Link>
+                  </button>
                 </li>
               ))}
             </ul>

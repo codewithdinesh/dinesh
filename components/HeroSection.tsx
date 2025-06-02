@@ -20,10 +20,30 @@ const HeroSection = () => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Parallax scroll effect
-  const { scrollYProgress } = useScroll({
+  useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
+
+  // Handle smooth scrolling to contact section
+  const handleContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const targetId = "contact";
+    const element = document.getElementById(targetId);
+
+    if (element) {
+      // Calculate offset to position section in view with space above
+      const navHeight = 80; // Approximate height of the nav + extra margin
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
+
+      // Smooth scroll with window.scrollTo
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
   const skills = [
     "React",
@@ -123,15 +143,14 @@ const HeroSection = () => {
                 View Projects
               </Button>
             </Link>
-            <Link href="#contact">
-              <Button
-                className="border-green-500 text-green-400 hover:bg-green-500/10 font-medium px-8 py-6 text-lg rounded-full hover:translate-y-[-2px] transition-all"
-                size="lg"
-                variant="outline"
-              >
-                Contact Me
-              </Button>
-            </Link>
+            <Button
+              className="border-green-500 text-green-400 hover:bg-green-500/10 font-medium px-8 py-6 text-lg rounded-full hover:translate-y-[-2px] transition-all"
+              size="lg"
+              variant="outline"
+              onClick={handleContactClick}
+            >
+              Contact Me
+            </Button>
           </div>
         </ScrollAnimation>
       </div>
