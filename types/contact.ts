@@ -1,14 +1,14 @@
 interface ContactItem {
-    name: string;
-    text: string;
-    link: string;
-    icon: React.ReactNode;
+  name: string;
+  text: string;
+  link: string;
+  icon: React.ReactNode;
 }
 
 interface ContactCardProps {
-    contact: ContactItem
+  contact: ContactItem;
 }
 
 interface ContactSectionProps {
-    contacts: ContactItem[]
+  contacts: ContactItem[];
 }

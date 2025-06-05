@@ -25,7 +25,6 @@ export const siteConfig = {
       label: "Contact",
       href: "/contact",
     },
-
   ],
   navMenuItems: [
     {
@@ -65,7 +64,6 @@ export const siteConfig = {
     github: "https://github.com/codewithdinesh",
     twitter: "https://twitter.com/codewithdinesh",
     instagram: "https://instagram.com/dineshrathod.ai",
-    linkedin: "https://linkedin.com/in/dineshrathod03"
-
+    linkedin: "https://linkedin.com/in/dineshrathod03",
   },
 };

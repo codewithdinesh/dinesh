@@ -1,30 +1,56 @@
-import { Button, Tooltip } from '@nextui-org/react'
-import Link from 'next/link'
-import React from 'react'
+"use client";
+
+import { Tooltip } from "@nextui-org/react";
+import Link from "next/link";
+import React from "react";
+import { motion } from "framer-motion";
 
 const ContactCard = ({ contact }: ContactCardProps) => {
+  return (
+    <motion.div
+      className="w-full md:w-auto"
+      whileHover={{ scale: 1.05, y: -5 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Tooltip content={contact?.text} placement="top">
+        <Link className="block" href={contact.link} target="_blank">
+          <motion.div
+            className={`
+              bg-slate-800/50 backdrop-blur-sm border w-full md:w-fit
+              px-6 py-4 flex items-center gap-3 rounded-lg shadow-lg 
+              hover:shadow-xl transition-all duration-300
+              ${contact.name === "Schedule Meeting" ? "text-green-500 border-green-500 hover:bg-green-900/30" : ""}
+              ${contact.name === "Email" ? "text-red-300 border-red-300/30 hover:bg-red-900/30" : ""}
+              ${contact.name === "LinkedIn" ? "text-blue-300 border-blue-300/30 hover:bg-blue-900/30" : ""}
+              ${contact.name === "GitHub" ? "text-gray-300 border-gray-300/30 hover:bg-gray-700/50" : ""}
+              ${contact.name === "Twitter" ? "text-blue-400 border-blue-400/30 hover:bg-blue-900/30" : ""}
+              ${contact.name === "Instagram" ? "text-pink-400 border-pink-400/30 hover:bg-pink-900/30" : ""}
+            `}
+          >
+            <motion.div
+              animate={{
+                rotate: [0, 10, 0, -10, 0],
+                scale: [1, 1.1, 1],
+              }}
+              className="text-2xl"
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                repeatDelay: Math.random() * 5,
+              }}
+            >
+              {contact.icon}
+            </motion.div>
 
+            <div>
+              <h3 className="font-medium">{contact.name}</h3>
+              <p className="text-sm opacity-70">{contact.text.split("@")[0]}</p>
+            </div>
+          </motion.div>
+        </Link>
+      </Tooltip>
+    </motion.div>
+  );
+};
 
-    return (
-        <Tooltip content={contact?.text} placement="top">
-            <Link href={contact.link} target="_blank">
-                <button
-                    className={`bg-slate-200 w-full md:w-fit bg-opacity-5 my-0 md:my-2 p-2 flex items-center  rounded-2xl hover:text-white font-semibold
-    ${contact.name === 'Schedule Meeting' ? 'text-green-500 border-green-500 hover:bg-green-700 hover:border-green-700 hover:text-white' : ''}
-    ${contact.name === 'Email' ? 'text-red-200  border-red-200 hover:bg-red-600 hover:border-red-600' : ''}
-    ${contact.name === 'LinkedIn' ? 'text-blue-300 border-blue-500 hover:!bg-blue-600 hover:border-blue-600' : ''}
-    ${contact.name === 'GitHub' ? 'text-gray-200 border-gray-400 hover:bg-gray-600 hover:border-gray-600 hover:text-white' : ''}
-    ${contact.name === 'Twitter' ? 'text-blue-300 border-blue-400 hover:bg-blue-500 hover:border-blue-500 hover:text-white' : ''}
-    ${contact.name === 'Instagram' ? 'text-pink-300 !border-pink hover:bg-pink-600 hover:border-pink-600 order-pink-500 hover:text-white' : ''}`}
-                >
-                    <span className='mx-2 md:m-0 md:mx-1'>{contact.icon}</span>
-                    <span className=' '>{contact.text}</span>
-                </button>
-
-
-            </Link>
-        </Tooltip>
-    )
-}
-
-export default ContactCard
+export default ContactCard;

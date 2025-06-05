@@ -1,41 +1,180 @@
 "use client";
-import { Button } from "@nextui-org/react";
-import AnimatedBeam from './AnimatedBeam';
-import Link from 'next/link';
+
 import { useRef } from "react";
+import Link from "next/link";
+import { motion, useScroll } from "framer-motion";
+
+import { Button } from "../components/ui/button";
+import { Badge } from "../components/ui/badge";
+
+import { ScrollAnimation } from "./ScrollAnimation";
+
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 const HeroSection = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
 
+  // Parallax scroll effect
+  useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
 
+  // Handle smooth scrolling to contact section
+  const handleContactClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    const targetId = "contact";
+    const element = document.getElementById(targetId);
 
+    if (element) {
+      // Calculate offset to position section in view with space above
+      const navHeight = 80; // Approximate height of the nav + extra margin
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - navHeight;
 
-    return (
-        <section className="relative  bg-gradient-to-tl from-slate-500 to-slate-700  md:from-slate-900/100 md:to-slate-700/70  py-16 md:py-24 rounded-md glassmorphic-bg bg-opacity-70  cursor-custom    ">
+      // Smooth scroll with window.scrollTo
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
 
-            {/* <section className="relative  bg-gradient-to-tl from-slate-500 to-slate-700  md:from-slate-900/100 md:to-slate-700/70  py-16 md:py-24 rounded-md glassmorphic-bg bg-opacity-70  cursor-custom    "> */}
-            {/* Content */}
-            <div className="relative p-4 text-center">
-                <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-green-400">
-                    Hi, I&apos;m <span className="text-neon font-extrabold">Dinesh Rathod</span>
-                </h1>
-                <p className="text-lg md:text-xl my-6 text-gray-300">
-                    <span className="text-neon-green">Full-stack developer</span> specializing in building <span className="text-neon-yellow font-bold">beautiful</span> and <span className="text-neon-blue font-bold">functional</span> web applications. Passionate about collaborating with <span className="text-neon-orange font-bold">diverse teams</span> to bring ideas to life.
-                </p>
-                <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-                    <Link href="/projects" >
-                        <Button size="lg" className="bg-green-500 hover:bg-green-400 text-black font-semibold transform hover:scale-105 transition-all">
-                            View Projects
-                        </Button>
-                    </Link>
-                    <Link href="#contact" >
-                        <Button size="lg" className="border-2 border-green-400 hover:bg-green-400 text-green-400 hover:text-black font-semibold transition-all">
-                            Contact Me
-                        </Button>
-                    </Link>
-                </div>
-            </div>
-        </section >
-    );
+  const skills = [
+    "React",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "Flutter",
+    "UI/UX",
+  ];
+
+  return (
+    <motion.section
+      ref={containerRef}
+      animate={{ opacity: 1 }}
+      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-tl from-slate-500/10 to-slate-700/30 py-16 md:py-28 rounded-2xl backdrop-blur-sm border border-slate-700/30 shadow-2xl"
+      id="hero"
+      initial={{ opacity: 0 }}
+      style={{
+        backgroundImage: `radial-gradient(circle at 50% 50%, rgba(24, 24, 27, 0) 0%, rgba(24, 24, 27, 0.8) 100%)`,
+      }}
+      transition={{ duration: 1 }}
+    >
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(circle_at_center,transparent_20%,black)]">
+          {[...Array(20)].map((_, i) => (
+            <div
+              key={i}
+              className="absolute top-0 left-0 h-1 w-1 rounded-full bg-green-400"
+              style={{
+                animation: `pulse ${Math.random() * 5 + 2}s infinite`,
+                left: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.3 + 0.2,
+                top: `${Math.random() * 100}%`,
+                transform: `scale(${Math.random() * 3 + 1})`,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="relative p-4 text-center z-10">
+        <ScrollAnimation delay={0.1} direction="down">
+          <Badge className="mb-4 py-1 px-4 bg-green-500/20 text-green-400 border-green-500/30 hover:bg-green-500/30">
+            Available for hire
+          </Badge>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.2} direction="up">
+          <h1 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl lg:text-8xl bg-clip-text text-transparent bg-gradient-to-r from-white via-green-400 to-emerald-600">
+            Hi, I&apos;m <span className="font-extrabold">Dinesh Rathod</span>
+          </h1>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.3} direction="up">
+          <p className="text-xl md:text-2xl my-8 text-slate-300 max-w-3xl mx-auto leading-relaxed">
+            <span className="text-green-400 font-medium">
+              Full-stack developer
+            </span>{" "}
+            specializing in building{" "}
+            <span className="text-yellow-400 font-bold">beautiful</span> and{" "}
+            <span className="text-blue-400 font-bold">functional</span> web
+            applications. Passionate about collaborating with{" "}
+            <span className="text-orange-400 font-bold">diverse teams</span> to
+            bring ideas to life.
+          </p>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.4} direction="up">
+          <div className="flex flex-wrap gap-2 justify-center my-6">
+            {skills.map((skill) => (
+              <TooltipProvider key={skill}>
+                <Tooltip>
+                  <TooltipTrigger>
+                    <Badge
+                      className="bg-slate-800/50 border-slate-700 px-3 py-1 text-sm hover:bg-slate-700/70 hover:border-slate-600 transition-all duration-300 transform hover:scale-105"
+                      variant="outline"
+                    >
+                      {skill}
+                    </Badge>
+                  </TooltipTrigger>
+                  <TooltipContent>
+                    <p>Skilled in {skill}</p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
+            ))}
+          </div>
+        </ScrollAnimation>
+
+        <ScrollAnimation delay={0.5} direction="up">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+            <Link href="/projects">
+              <Button
+                className="bg-green-600 hover:bg-green-500 text-white font-medium px-8 py-6 text-lg rounded-full shadow-lg shadow-green-800/20 hover:shadow-green-700/40 hover:translate-y-[-2px] transition-all"
+                size="lg"
+              >
+                View Projects
+              </Button>
+            </Link>
+            <Button
+              className="border-green-500 text-green-400 hover:bg-green-500/10 font-medium px-8 py-6 text-lg rounded-full hover:translate-y-[-2px] transition-all"
+              size="lg"
+              variant="outline"
+              onClick={handleContactClick}
+            >
+              Contact Me
+            </Button>
+          </div>
+        </ScrollAnimation>
+      </div>
+
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <svg
+          className="text-green-400"
+          fill="none"
+          height="24"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+          />
+        </svg>
+      </div>
+    </motion.section>
+  );
 };
 
 export default HeroSection;

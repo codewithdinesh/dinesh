@@ -1,28 +1,22 @@
 "use client";
 
-import Link from 'next/link';
-import { notFound } from 'next/navigation';
-import Project from '@/components/Projects/Project';
-import { projectsData } from '@/config/projects';
-import type { ProjectPageProps } from '@/types/projects';
+import type { ProjectPageProps } from "@/types/projects";
 
+import { notFound } from "next/navigation";
 
+import Project from "@/components/Projects/Project";
+import { projectsData } from "@/config/projects";
 
 const ProjectPage = ({ params: { id } }: ProjectPageProps) => {
+  // Find the project by its id
+  const project = projectsData.find((project) => project.id === id);
 
-    // Find the project by its id
-    const project = projectsData.find((project) => project.id === id);
+  // If project not found, return 404
+  if (!project) {
+    return notFound();
+  }
 
-    // If project not found, return 404
-    if (!project) {
-        return notFound();
-    }
-
-    return (
-
-        <Project project={project} />
-
-    );
+  return <Project project={project} />;
 };
 
 export default ProjectPage;
